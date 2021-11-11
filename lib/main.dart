@@ -33,8 +33,8 @@ class MyApp extends StatelessWidget {
             ),
             padding: EdgeInsets.all(15),
             margin: EdgeInsets.all(15),
-            child: Column(
-              children: [
+            child:  Column(
+              children:const [
                 Percent(percent: 24),
                 Realisation(
                     objectif: 178000, realisation: 26000, restAfaire: 8700)

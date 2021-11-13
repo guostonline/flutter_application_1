@@ -21,17 +21,7 @@ class Percent extends StatelessWidget {
               )
             : Text(percent.toString() + "%",
                 style: const TextStyle(fontSize: 40, color: Colors.red)),
-        percent >= 0
-            ? Icon(
-                Icons.thumb_up,
-                size: 40,
-                color: Colors.blue,
-              )
-            : Icon(
-                Icons.thumb_down,
-                size: 40,
-                color: Colors.red,
-              ),
+
       ],
     );
   }

@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Constants/constants.dart';
 import 'package:flutter_application_1/Widgets/card.dart';
 import 'package:flutter_application_1/Widgets/message.dart';
 import 'package:flutter_application_1/Widgets/percent.dart';
 import 'package:flutter_application_1/Widgets/realisation.dart';
+import 'package:gsheets/gsheets.dart';
 
 void main() {
   runApp(
@@ -22,6 +24,19 @@ class MyApp extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("chakib"),
+        actions: [
+          IconButton(
+              onPressed: () async {
+                final gSheets = GSheets(credentials);
+                final ss = await gSheets.spreadsheet(spreadSheet);
+                var sheet = ss.worksheetByTitle("Suivie");
+                //update a cell&1
+                await sheet!.values.insertValue("bien fait", column: 1, row: 1);
+                var test = await sheet.values.value(column: 1, row: 1);
+                print(test);
+              },
+              icon: Icon(Icons.ac_unit))
+        ],
       ),
       body: (ListView(
         // ignore: prefer_const_literals_to_create_immutables
@@ -41,7 +56,8 @@ class MyApp extends StatelessWidget {
             jourRest: 12,
             message: "faite attension il rest que 10 jours",
             percent: -12,
-          ),MyCard(
+          ),
+          MyCard(
             famille: "Buillion",
             objectif: 45000,
             realisation: 22000,

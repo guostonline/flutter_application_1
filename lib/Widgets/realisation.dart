@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/Logics/functions.dart';
 
 class Realisation extends StatelessWidget {
   const Realisation({
     Key? key,
     required this.objectif,
     required this.realisation,
-    required this.restAfaire,
+    required this.jourRest,
   }) : super(key: key);
   final int objectif;
   final int realisation;
-  final int restAfaire;
+  final int jourRest;
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle(
-      style: const TextStyle(fontSize: 16, color: Colors.black),
+      style: const TextStyle(fontSize: 12, color: Colors.black),
       child: IntrinsicHeight(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -22,12 +23,14 @@ class Realisation extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text("Obj",
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(objectif.toString()),
+                const Text(
+                  "Objectif",
+                ),
+                Text(objectif.toString(),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold)),
                 Text(
                   (objectif * 1.2).toStringAsFixed(0),
-                  style: const TextStyle(fontSize: 12),
                 ),
               ],
             ),
@@ -39,12 +42,12 @@ class Realisation extends StatelessWidget {
               children: [
                 const Text(
                   "Realisation",
-                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                Text(realisation.toString()),
+                Text(realisation.toString(),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold)),
                 Text(
                   (realisation * 1.2).toStringAsFixed(0),
-                  style: const TextStyle(fontSize: 12),
                 ),
               ],
             ),
@@ -54,13 +57,10 @@ class Realisation extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text("Rest/j",
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                Text(restAfaire.toString()),
-                Text(
-                  (restAfaire * 1.2).toStringAsFixed(0),
-                  style: const TextStyle(fontSize: 12),
-                ),
+                const Text("Rest/jour TTC"),
+                Text(restParJour(objectif, realisation, jourRest),
+                    style: const TextStyle(
+                        fontSize: 24, fontWeight: FontWeight.bold)),
               ],
             ),
           ],

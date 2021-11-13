@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Widgets/card.dart';
+import 'package:flutter_application_1/Widgets/message.dart';
 import 'package:flutter_application_1/Widgets/percent.dart';
 import 'package:flutter_application_1/Widgets/realisation.dart';
-
-import 'Widgets/informations.dart';
 
 void main() {
   runApp(
@@ -26,20 +26,36 @@ class MyApp extends StatelessWidget {
       body: (ListView(
         // ignore: prefer_const_literals_to_create_immutables
         children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: Colors.green.shade50,
-            ),
-            padding: EdgeInsets.all(15),
-            margin: EdgeInsets.all(15),
-            child:  Column(
-              children:const [
-                Percent(percent: 24),
-                Realisation(
-                    objectif: 178000, realisation: 26000, restAfaire: 8700)
-              ],
-            ),
+          MyCard(
+            famille: "Chiffre d'affaire",
+            objectif: 200000,
+            realisation: 32000,
+            jourRest: 12,
+            message: "faite attension il rest que 10 jours",
+            percent: 12,
+          ),
+          MyCard(
+            famille: "Levure",
+            objectif: 90000,
+            realisation: 32000,
+            jourRest: 12,
+            message: "faite attension il rest que 10 jours",
+            percent: -12,
+          ),MyCard(
+            famille: "Buillion",
+            objectif: 45000,
+            realisation: 22000,
+            jourRest: 12,
+            message: "Bien continue",
+            percent: 50,
+          ),
+          MyCard(
+            famille: "MGM",
+            objectif: 12000,
+            realisation: 8000,
+            jourRest: 12,
+            message: "Toujours negatif",
+            percent: -43,
           ),
         ],
       )),

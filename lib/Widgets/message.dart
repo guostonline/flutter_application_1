@@ -4,10 +4,12 @@ import 'package:flutter/widgets.dart';
 class MyMessage extends StatelessWidget {
   const MyMessage({
     Key? key,
-    required this.message,
+    required this.messageCDZ,
+    required this.messageCDA,
     required this.goodOrbad,
   }) : super(key: key);
-  final String message;
+  final String messageCDZ;
+  final String messageCDA;
   final bool goodOrbad;
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,8 @@ class MyMessage extends StatelessWidget {
           children: [
             const Text("Note : ",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            Text(message)
+            Text("Loukili: " + messageCDZ),
+            Text("Lahlali: " + messageCDA)
           ],
         ),
         goodOrbad

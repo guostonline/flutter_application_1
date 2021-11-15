@@ -58,9 +58,9 @@ class Realisation extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text("Rest/jour TTC"),
-                Text(restParJour(objectif, realisation, jourRest),
+                Text(jourRest.toString(),
                     style: const TextStyle(
-                        fontSize: 24, fontWeight: FontWeight.bold)),
+                        fontSize: 30, fontWeight: FontWeight.bold)),
               ],
             ),
           ],

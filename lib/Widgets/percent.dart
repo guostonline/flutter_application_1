@@ -17,11 +17,16 @@ class Percent extends StatelessWidget {
         percent >= 0
             ? Text(
                 percent.toString() + "%",
-                style: const TextStyle(fontSize: 45, color: Colors.blue),
+                style: const TextStyle(
+                    fontSize: 45,
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold),
               )
             : Text(percent.toString() + "%",
-                style: const TextStyle(fontSize: 40, color: Colors.red)),
-
+                style: const TextStyle(
+                    fontSize: 40,
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold)),
       ],
     );
   }

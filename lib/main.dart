@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Logics/connect_to_sheets.dart';
 import 'package:flutter_application_1/Logics/get_x.dart';
+import 'package:flutter_application_1/Pages/qualitatif_page.dart';
 import 'package:flutter_application_1/Widgets/card.dart';
 import 'package:get/get.dart';
 
@@ -34,7 +35,12 @@ class MyApp extends StatelessWidget {
 
                     print("suivielist " + _controller.suivieList[0][4]);
                   },
-                  icon: Icon(Icons.ac_unit))
+                  icon: Icon(Icons.ac_unit)),
+              IconButton(
+                  onPressed: () {
+                    Get.to(QualitatifPage());
+                  },
+                  icon: Icon(Icons.more_horiz))
             ],
           ),
           body: ListView(

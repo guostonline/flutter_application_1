@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Constants/constants.dart';
 
 class Qualitatif extends StatelessWidget {
   const Qualitatif(
-      {Key? key, required this.title, this.litleTitle, required this.number})
+      {Key? key,
+      required this.title,
+      this.litleTitle,
+      required this.number,
+      required this.isLineParBl})
       : super(key: key);
   final String? title;
   final String? litleTitle;
-  final int? number;
+  final String? number;
+  final bool isLineParBl;
   @override
   Widget build(BuildContext context) {
     return Card(
-
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
       elevation: 15,
       child: Container(
         padding: const EdgeInsets.all(8.0),
-        decoration:const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Colors.yellow,
-              Colors.orangeAccent,
-             // Colors.yellow.shade300,
-            ],
+            colors: isLineParBl ? myColor1 : myColor2,
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -32,7 +32,7 @@ class Qualitatif extends StatelessWidget {
           children: [
             Text(
               title!,
-              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
             Text(
               litleTitle!,
@@ -45,7 +45,7 @@ class Qualitatif extends StatelessWidget {
                 Text(
                   number!.toString(),
                   style: const TextStyle(
-                      fontSize: 60, fontWeight: FontWeight.bold),
+                      fontSize: 55, fontWeight: FontWeight.bold),
                 ),
               ],
             ),

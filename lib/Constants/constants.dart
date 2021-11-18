@@ -1,4 +1,7 @@
 // ignore: file_names
+
+import 'package:flutter/material.dart';
+
 const credentials = r"""
 {
   "type": "service_account",
@@ -15,3 +18,14 @@ const credentials = r"""
 """;
 
 const spreadSheet = "1pxAGYXbMBC7m0J8tJUgQIMhRAbdiwXnMLE435-6jUGw";
+
+const List<Color> myColor1 = [
+  Colors.yellow,
+  Colors.orangeAccent,
+  // Colors.yellow.shade300,
+];
+const List<Color> myColor2 = [
+  Colors.lightBlue,
+  Colors.green,
+  // Colors.yellow.shade300,
+];

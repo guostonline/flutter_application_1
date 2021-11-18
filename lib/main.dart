@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Logics/connect_to_sheets.dart';
 import 'package:flutter_application_1/Logics/get_x.dart';
 import 'package:flutter_application_1/Pages/qualitatif_page.dart';
+import 'package:flutter_application_1/Pages/tab_view.dart';
 import 'package:flutter_application_1/Widgets/card.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +11,7 @@ void main() {
   runApp(
     const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyApp(),
+      home: DefaultPage(),
     ),
   );
 }

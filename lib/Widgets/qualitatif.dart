@@ -10,10 +10,23 @@ class Qualitatif extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0)),
       elevation: 15,
       child: Container(
-        height: 60,
-        width: 100,
+        padding: const EdgeInsets.all(8.0),
+        decoration:const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.yellow,
+              Colors.orangeAccent,
+             // Colors.yellow.shade300,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -23,7 +36,7 @@ class Qualitatif extends StatelessWidget {
             ),
             Text(
               litleTitle!,
-              style: const TextStyle(fontSize: 15),
+              style: const TextStyle(fontSize: 18),
             ),
             const Spacer(),
             Row(
@@ -32,7 +45,7 @@ class Qualitatif extends StatelessWidget {
                 Text(
                   number!.toString(),
                   style: const TextStyle(
-                      fontSize: 40, fontWeight: FontWeight.bold),
+                      fontSize: 60, fontWeight: FontWeight.bold),
                 ),
               ],
             ),

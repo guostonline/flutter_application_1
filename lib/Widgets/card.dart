@@ -40,7 +40,7 @@ class MyCard extends StatelessWidget {
                 Text(
                   famille,
                   style: const TextStyle(
-                      fontSize: 30, fontWeight: FontWeight.bold),
+                      fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 Percent(percent: percent),
               ],

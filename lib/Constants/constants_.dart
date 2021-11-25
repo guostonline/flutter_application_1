@@ -1,6 +1,7 @@
 // ignore: file_names
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show Color, Colors, FontWeight, TextStyle;
 
 const credentials = r"""
 {
@@ -16,16 +17,27 @@ const credentials = r"""
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/suivie-app-flutter%40suivieapp.iam.gserviceaccount.com"
 }
 """;
-
+const codeCdz = "madec123";
 const spreadSheet = "1pxAGYXbMBC7m0J8tJUgQIMhRAbdiwXnMLE435-6jUGw";
 
 const List<Color> myColor1 = [
-  Colors.yellow,
-  Colors.orangeAccent,
+  Colors.green,
+  Colors.black,
   // Colors.yellow.shade300,
 ];
 const List<Color> myColor2 = [
-  Colors.lightBlue,
-  Colors.green,
+  Colors.blue,
+  Colors.blueGrey,
   // Colors.yellow.shade300,
 ];
+
+const TextStyle textStyle1 =
+    TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold);
+const TextStyle textStyle2 = TextStyle(
+  fontSize: 18,
+  color: Colors.white,
+);
+const TextStyle textStyle3 =
+    TextStyle(fontSize: 48, color: Colors.white, fontWeight: FontWeight.bold);
+const TextStyle textStyleBigTitle =
+    TextStyle(fontSize: 38, fontWeight: FontWeight.bold);

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/Logics/functions.dart';
 
 class Realisation extends StatelessWidget {
   const Realisation({
@@ -60,7 +59,7 @@ class Realisation extends StatelessWidget {
                 const Text("Rest/jour TTC"),
                 Text(jourRest.toString(),
                     style: const TextStyle(
-                        fontSize: 30, fontWeight: FontWeight.bold)),
+                        fontSize: 25, fontWeight: FontWeight.bold)),
               ],
             ),
           ],

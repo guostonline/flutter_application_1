@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Constants/constants.dart';
+import 'package:flutter_application_1/Constants/constants_.dart';
 
 class Qualitatif extends StatelessWidget {
   const Qualitatif(
@@ -32,11 +32,11 @@ class Qualitatif extends StatelessWidget {
           children: [
             Text(
               title!,
-              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+              style:  textStyle1,
             ),
             Text(
               litleTitle!,
-              style: const TextStyle(fontSize: 18),
+              style:  textStyle2,
             ),
             const Spacer(),
             Row(
@@ -44,8 +44,7 @@ class Qualitatif extends StatelessWidget {
                 const Spacer(),
                 Text(
                   number!.toString(),
-                  style: const TextStyle(
-                      fontSize: 55, fontWeight: FontWeight.bold),
+                  style:  textStyle3,
                 ),
               ],
             ),

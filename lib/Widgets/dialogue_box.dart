@@ -34,9 +34,9 @@ Future<void> displayTextInputDialog(BuildContext context) {
                       _textFieldController2.text != codeCdz ||
                       _textFieldController2.text.isEmpty) {
                     Get.snackbar("Attention", "Entree un code vendeur",
-                        barBlur: 50);
+                        barBlur: 50,colorText: Colors.white);
                   } else {
-                    _controller.userName.value = _textFieldController.text;
+                    _controller.userCode.value = _textFieldController.text;
                     _controller.writeName();
                     Navigator.pop(context);
                   }

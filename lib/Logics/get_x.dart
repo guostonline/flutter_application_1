@@ -11,16 +11,18 @@ class GetStat extends GetxController {
   @override
   void onInit() async {
     super.onInit();
-    
-    clearData();
+
+   
     if (box.read("userName") != null) {
       userName.value = box.read("userName");
-      print("userName value is " + userName.value);
+      userCode.value = box.read("userCode");
     }
-    print("userName value is " + box.read("userName"));
+     fetchData();
   }
 
+  RxBool isLoading = true.obs;
   RxString userName = "".obs;
+  RxString userCode = "".obs;
   RxInt caObj = 0.obs;
   RxInt caRealisation = 0.obs;
   RxInt caRest = 0.obs;
@@ -59,41 +61,42 @@ class GetStat extends GetxController {
   RxString dateSuivie = "".obs;
   void myCalc() {
 //name of famille
-    familleName1.value = suivieList[1][1].toString();
-    familleName2.value = suivieList[2][1].toString();
-    familleName3.value = suivieList[3][1].toString();
-    dateSuivie.value = suivieList[0][9];
-    caObj.value = doubleToInt(suivieList[0][2]);
-    caRealisation.value = doubleToInt(suivieList[0][3]);
-    caRest.value = doubleToInt(suivieList[0][5]);
-    caPercent.value = doubleToInt(suivieList[0][4]);
-    caMessageCDZ.value = suivieList[0][7];
-    caMessageCDA.value = suivieList[0][8];
+    familleName1.value = suivieList[1][2];
+    familleName2.value = suivieList[2][2];
+    familleName3.value = suivieList[3][2];
+// CA
+    dateSuivie.value = suivieList[0][10];
+    caObj.value = doubleToInt(suivieList[0][3]);
+    caRealisation.value = doubleToInt(suivieList[0][4]);
+    caRest.value = doubleToInt(suivieList[0][6]);
+    caPercent.value = doubleToInt(suivieList[0][5]);
+    caMessageCDZ.value = suivieList[0][8];
+    caMessageCDA.value = suivieList[0][9];
 //famille 1
-    famille1Ojb.value = doubleToInt(suivieList[1][2]);
-    famille1Realisation.value = doubleToInt(suivieList[1][3]);
-    famille1Rest.value = doubleToInt(suivieList[1][5]);
-    famille1Percent.value = doubleToInt(suivieList[1][4]);
-    f1MessageCDZ.value = suivieList[1][7];
-    f1MessageCDA.value = suivieList[1][8];
+    famille1Ojb.value = doubleToInt(suivieList[1][3]);
+    famille1Realisation.value = doubleToInt(suivieList[1][4]);
+    famille1Rest.value = doubleToInt(suivieList[1][6]);
+    famille1Percent.value = doubleToInt(suivieList[1][5]);
+    f1MessageCDZ.value = suivieList[1][8];
+    f1MessageCDA.value = suivieList[1][9];
 
 //famille2
-    famille2Obj.value = doubleToInt(suivieList[2][2]);
-    famille2Realisation.value = doubleToInt(suivieList[2][3]);
-    famille2Rest.value = doubleToInt(suivieList[2][5]);
-    famille2Percent.value = doubleToInt(suivieList[2][4]);
-    f2MessageCDZ.value = suivieList[2][7];
-    f2MessageCDA.value = suivieList[2][8];
+    famille2Obj.value = doubleToInt(suivieList[2][3]);
+    famille2Realisation.value = doubleToInt(suivieList[2][4]);
+    famille2Rest.value = doubleToInt(suivieList[2][6]);
+    famille2Percent.value = doubleToInt(suivieList[2][5]);
+    f2MessageCDZ.value = suivieList[2][8];
+    f2MessageCDA.value = suivieList[2][9];
 
 //famille3
-    famille3Obj.value = doubleToInt(suivieList[3][2]);
-    famille3Realisation.value = doubleToInt(suivieList[3][3]);
-    famille3Rest.value = doubleToInt(suivieList[3][3]);
-    famille3Percent.value = doubleToInt(suivieList[3][4]);
-    f3MessageCDZ.value = suivieList[3][7];
-    f3MessageCDA.value = suivieList[3][8];
+    famille3Obj.value = doubleToInt(suivieList[3][3]);
+    famille3Realisation.value = doubleToInt(suivieList[3][4]);
+    famille3Rest.value = doubleToInt(suivieList[3][6]);
+    famille3Percent.value = doubleToInt(suivieList[3][5]);
+    f3MessageCDZ.value = suivieList[3][8];
+    f3MessageCDA.value = suivieList[3][9];
 
-    jourRest.value = doubleToInt(suivieList[0][6]);
+   // jourRest.value = doubleToInt(suivieList[0][7]);
   }
 
   void clearData() {
@@ -103,16 +106,20 @@ class GetStat extends GetxController {
   }
 
   void fetchData() async {
-    suivieList.value = await getDataFromSheets(userName.value, "Suivie");
-    qualitatif.value = await getDataFromSheets(userName.value, "Qualitatif");
-    focus.value = await getDataFromSheets(userName.value, "Focus");
+    suivieList.addAll(await getDataFromSheets(userCode.value, "Suivie"));
+    qualitatif.addAll(await getDataFromSheets(userCode.value, "Qualitatif"));
+    focus.addAll(await getDataFromSheets(userCode.value, "Focus"));
 
     myCalc();
-    userName.value = suivieList[0][0];
+    userName.value = suivieList[0][1];
+    userCode.value = suivieList[0][0];
+
+    writeName();
+    
   }
 
   void writeName() {
     box.write("userName", userName.value);
-    print("test storage " + box.read("userName"));
+    box.write("userCode", userCode.value);
   }
 }

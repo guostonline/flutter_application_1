@@ -31,7 +31,7 @@ class QualitatifPage extends StatelessWidget {
               Qualitatif(
                   title: "Total ",
                   litleTitle: "Clients",
-                  number: _controller.qualitatif[0][2].toString(),
+                  number: _controller.qualitatif[0][3].toString(),
                   isLineParBl: false),
               Qualitatif(
                   title: "ACM",

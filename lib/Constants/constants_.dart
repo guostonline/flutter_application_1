@@ -26,8 +26,9 @@ const List<Color> myColor1 = [
   // Colors.yellow.shade300,
 ];
 const List<Color> myColor2 = [
-  Colors.blue,
-  Colors.blueGrey,
+  Color(0xff0f0c29),
+  Color(0xff302b63),
+  Color(0xff24243e),
   // Colors.yellow.shade300,
 ];
 
